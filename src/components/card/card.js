@@ -6,11 +6,14 @@ import Image from 'next/image'
 /**
  * The internal imports
  */
-import Button, { IconTypes } from '../button/button'
+import Button from '../button/button'
 import styles from "./card.module.sass"
+import ConditionalRenderer from '../conditional-renderer'
+import getCategoryColor from '@/helpers/get-category-color'
 
 
-const Card = () => (
+const Card = (props) => (
+  <div className={`${styles.card_wrap} ${props.className || ''}`}>
     <div className={styles.card}>
       <div className={styles.card_imageWrap}>
         <div className={styles.card_image}>
@@ -18,15 +21,18 @@ const Card = () => (
         </div>
       </div>
         <div className={styles.card_content}>
-          <div className={`${styles.card_label} h6 mb-10 orange`} >Product Reviews</div>
-          <div className={`${styles.card_title} h3 mb-20`}>
-            Class aptent taciti socio squad litoral torquent per conubia nostra
-          </div>
-          <p className={`${styles.card_summary} fw-600`}>
-            Mauris Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, enim.
-          </p>
-          <Button href="#" icon={IconTypes.ARROW_RIGHT}>Read More</Button>
+          <ConditionalRenderer condition={props.label}>
+            <div className={`${styles.card_label} h6 mb-10 ${getCategoryColor(props.label)}`}>{props.label}</div>
+          </ConditionalRenderer>
+          <ConditionalRenderer condition={props.title}>
+            <div className={`${styles.card_title} h3 mb-20`}>{props.title}</div>
+          </ConditionalRenderer>
+          <ConditionalRenderer condition={props.summary}>
+            <p className={`${styles.card_summary} fw-600`}>{props.summary}</p>
+          </ConditionalRenderer>
+          <Button href={props.href} icon={props.btnIcon}>{props.btnLabel || 'En Savoir Plus'}</Button>
         </div>
     </div>
+  </div>
   )
 export default Card
