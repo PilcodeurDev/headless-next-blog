@@ -17,7 +17,7 @@ const Card = (props) => (
     <div className={styles.card}>
       <div className={styles.card_imageWrap}>
         <div className={styles.card_image}>
-          <Image src="/thumb-featured-article.jpg" alt="thumbrail" fill={true} />
+          <Image src={props.imgSrc} alt={props.imgAlt} fill={true} />
         </div>
       </div>
         <div className={styles.card_content}>
