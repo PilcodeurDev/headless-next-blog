@@ -9,8 +9,13 @@ import config from '@/config'
 
 const BlogDetails = async (props) => {
   const blogs = await fetchBlogs(`filters[slug][$eq]=${props.params.slug}`)
+
   if (blogs.data.length === 0) return null;
   const blog = blogs.data[0];
+
+  //i can't take the first objet with id: 1
+  console.log("blogs:", blogs.data[0] );
+
 
   return (
     <div className="container pb-80">
@@ -35,4 +40,15 @@ const BlogDetails = async (props) => {
     </div>
   )
 }
+
+// dynamic recorery before
+
+export const generateStaticParams = async () => {
+  const blogs = await fetchBlogs();
+
+  return blogs.data.map((blog) => ({
+    slug: blog.attributes.slug
+  }));
+}
+
 export default BlogDetails
