@@ -7,6 +7,7 @@ const fetchBlogs = async (params) => {
       Authorization: `Bearer ${process.env.API_TOKEN}`
     }
   }
+
   const request = await fetch(`${config.api}/api/blogs?populate=*&${params}`, init);
   const response = await request.json();
 
