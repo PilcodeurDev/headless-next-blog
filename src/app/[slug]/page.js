@@ -35,4 +35,15 @@ const BlogDetails = async (props) => {
     </div>
   )
 }
+
+// dynamic recorery before
+
+export const generateStaticParams= async () => {
+  const blogs = await fetchBlogs();
+
+  return blogs.map((blog) => ({
+    slug: blog.attributes.slug
+  }));
+}
+
 export default BlogDetails
