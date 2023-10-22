@@ -13,7 +13,8 @@
     "normalize.css": "^8.0.1",
     "react": "^18",
     "react-dom": "^18",
-    "sass": "^1.69.4"
+    "sass": "^1.69.4",
+    "sharp": "^0.32.6"
   },
   "devDependencies": {
     "eslint": "^8",

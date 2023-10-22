@@ -13,8 +13,6 @@ const BlogDetails = async (props) => {
   if (blogs.data.length === 0) return null;
   const blog = blogs.data[0];
 
-  //i can't take the first objet with id: 1
-  console.log("blogs:", blogs.data[0] );
 
 
   return (

@@ -11,7 +11,7 @@ const Home = async () => {
     await fetchBlogs('filters[IsFeatured][$eq]=true'),
     await fetchBlogs('filters[IsFeatured][$eq]=false')
   ])
-  console.log(blogs.data)
+
   return (
     <div className="container pb-80">
       {featuredBlogs.data.map(featuredBlog => (
