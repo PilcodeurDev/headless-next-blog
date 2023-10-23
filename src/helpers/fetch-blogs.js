@@ -1,5 +1,3 @@
-import config from "@/config";
-
 const fetchBlogs = async (params) => {
   const init = {
     method: 'GET',
@@ -8,7 +6,7 @@ const fetchBlogs = async (params) => {
     }
   }
 
-  const request = await fetch(`${config.api}/api/blogs?populate=*&${params}`, init);
+  const request = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&${params}`, init);
   const response = await request.json();
 
   return response;
