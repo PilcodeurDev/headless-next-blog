@@ -5,6 +5,7 @@ import Image from 'next/image'
 import getCategoryColor from '@/helpers/get-category-color'
 import styles from './style.module.sass'
 import fetchBlogs from '@/helpers/fetch-blogs'
+import config from '../config'
 
 
 const BlogDetails = async (props) => {
@@ -26,7 +27,7 @@ const BlogDetails = async (props) => {
 
       <Image
         className={`${styles.featuredImage} mb-50`}
-        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${blog.attributes.FeaturedImage.data.attributes.url}`}
+        src={`${config.api}${blog.attributes.FeaturedImage.data.attributes.url}`}
         alt="Featured Image"
         width="1280" height="387"
       />

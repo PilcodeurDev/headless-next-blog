@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // output: 'export',
-  distDir: 'dist',
+  // distDir: 'dist',
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
