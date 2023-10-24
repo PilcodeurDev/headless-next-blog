@@ -1,9 +1,6 @@
 {
   "name": "headless_next_blog",
   "version": "0.1.0",
-  "engines": {
-    "node": "6.11.1"
-  },
   "private": true,
   "scripts": {
     "dev": "next",
