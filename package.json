@@ -2,6 +2,10 @@
   "name": "headless_next_blog",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+  "node": ">=16.0.0 <20.0.0",
+  "npm": ">=6.0.0"
+},
   "scripts": {
     "dev": "next dev",
     "build": "next build",
